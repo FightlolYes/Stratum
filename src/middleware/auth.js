@@ -15,7 +15,6 @@ const authenticateToken = (req, res, next) => {
         }
 
         req.userID = decodedToken.id
-        console.log("Token verified")
         next()
     })
 }

@@ -1,13 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    Dashboard
+<%- include('../partials/header.ejs') %>
+
+<!-- Local stylesheet -->
+<link rel="stylesheet" href="/css/styles.css">
+
+<title>Dashboard</title>
+
+<nav class="navbar navbar-expand-sm container-fluid navbar-dark bg-primary" >
+
+    <a class="navbar-brand" href="/">Stratum Dashboard</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+          <i class="fas fa-bars" style="color:black ; font-size: 28px;"></i>
+        </span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" >
+    <ul class="navbar-nav ms-auto">
+
+        <li class="navbar-item">
+            <a class="nav-link" href="/logout">Log out</a>
+        </li>
+
+    </ul>
+    </div>
+</nav>
+
     <br>
-    <button type="button"><a href="/logout">Logout</a></button>
-</body>
-</html>
+
+<%- include('../partials/footer.ejs') %>

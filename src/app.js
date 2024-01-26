@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
+app.use(express.static('src/public'))
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
 app.use(session({

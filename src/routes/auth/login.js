@@ -7,7 +7,7 @@ import { db } from "./../../models/admin.js"
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    res.render('auth/login')
+    res.render('auth/login', { error: null })
 })
 
 router.post('/', async (req, res) => {
