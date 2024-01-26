@@ -3,7 +3,6 @@ import open from 'open'
 import dotenv from 'dotenv'
 import session from 'express-session'
 
-import socketUtils from './utils/socketUtil.js'
 import handleAuthError from './middleware/authError.js'
 
 dotenv.config()
