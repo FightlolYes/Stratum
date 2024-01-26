@@ -1,0 +1,22 @@
+{
+  "name": "stratum-dashboard",
+  "version": "1.0.0",
+  "description": "Stratum is a web-based Minecraft server management tool designed to simplify the administration of Minecraft server running on remote machines in your network.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yash Patil",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "open": "^10.0.3",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4"
+  }
+}
