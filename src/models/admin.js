@@ -1,6 +1,7 @@
 import sqlite3 from 'sqlite3'
 import bcrypt from 'bcrypt'
-import crypto from 'crypto'
+
+import { initDBUser } from '../utils/dbInit.js'
 
 const db = new sqlite3.Database('./src/db/db.db')
 
@@ -14,28 +15,11 @@ const initDB = () => {
             )
         `)
 
-        db.get("SELECT * FROM adminUSER WHERE name = 'admin'", (err, user) => {
-            if (err) {
-                return console.log(err)
-            }
+        initDBUser(db)
+    })
+}
 
-                        if (!user) { 
-                            const defaultPass = process.env.DEFAULTPASS
-                            bcrypt.hash(defaultPass, 10, (err, hash) => {
-                                if (err) {
-                                    return console.log(err)
-                                }
-
-                                const insertStmt = db.prepare("INSERT INTO adminUser (name, password) VALUES (?, ?)")
-                                insertStmt.run('admin', hash)
-                                insertStmt.finalize()
-                            })
-                        }
-                    })
-                })
-            }
-
-            initDB()
+initDB()
 
 const adminUserSchema = {
     name: {
