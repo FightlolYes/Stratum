@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 
 import { initDBUser } from '../utils/dbInit.js'
 
-const db = new sqlite3.Database('./src/db/db.db')
+const db = new sqlite3.Database('./src/web/db/admin.db')
 
 const initDB = () => {
     db.serialize(() => {

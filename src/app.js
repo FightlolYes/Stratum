@@ -3,7 +3,7 @@ import open from 'open'
 import dotenv from 'dotenv'
 import session from 'express-session'
 
-import handleAuthError from './middleware/authError.js'
+import handleAuthError from './web/middleware/authError.js'
 
 dotenv.config()
 
@@ -12,9 +12,9 @@ const port = process.env.PORT || 8080
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('src/public'))
+app.use(express.static('src/web/public'))
 app.set('view engine', 'ejs')
-app.set('views', './src/views')
+app.set('views', './src/web/views')
 app.use(session({
     secret: process.env.JWT_SECRET,
     resave: false,
@@ -36,10 +36,10 @@ app.get("/logout", (req, res) => {
     res.redirect("/")
 })
 
-import loginRoute from './routes/auth/login.js'
+import loginRoute from './web/routes/auth/login.js'
 app.use("/login", loginRoute)
 
-import dashboardRoute from './routes/dashboard/dashboard.js'
+import dashboardRoute from './web/routes/dashboard/dashboard.js'
 app.use("/dashboard", dashboardRoute)
 
 app.listen(port, () => {

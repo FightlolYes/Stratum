@@ -1,8 +1,6 @@
 import sqlite3 from 'sqlite3'
 import bcrypt from 'bcrypt'
 
-const db = new sqlite3.Database('./src/db/db.db')
-
 function initDBUser (db) {
     db.get("SELECT * FROM adminUSER WHERE id=1", (err, user) => {
         if (err) {
