@@ -8,6 +8,7 @@ const initDB = () => {
     db.serialize(() => {
         db.run(`
             CREATE TABLE IF NOT EXISTS adminUser (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT,
                 password TEXT
             )

@@ -1,0 +1,23 @@
+<%- include('../partials/dashboard/header.ejs') %>
+
+    <!-- Local stylesheet -->
+    <link rel="stylesheet" href="/css/dashboard/account.css">
+
+        <!-- Page Content -->
+        <div class="main">
+
+            <form action="/login/newlogin" method="post">
+                <div class="form-group">
+                  <label for="newUsername">Username</label>
+                  <input type="text" class="form-control" id="newUsername" name="newUsername" placeholder="Enter new username">
+                </div>
+                <div class="form-group">
+                  <label for="newPassword">Password</label>
+                  <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="Enter new password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            
+        </div>
+    </div>
+<%- include('../partials/footer.ejs') %>

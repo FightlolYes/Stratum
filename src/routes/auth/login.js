@@ -48,4 +48,34 @@ router.post('/', async (req, res) => {
 
 })
 
+router.post('/newlogin', async (req, res) => {
+    try {
+        const { newUsername, newPassword } = req.body
+
+        db.get("SELECT * FROM adminUser LIMIT 1", (err, user) => {
+            if(err) {
+                return res.status(500).send({ error: "Internal Server Error" })
+            }
+
+            bycrypt.hash(newPassword, 10, (err, hash) => {
+                if(err) {
+                    return res.status(500).send({ error: "Internal Server Error" })
+                }
+
+                const newInfo = db.prepare("UPDATE adminUser SET name = ?, password = ? WHERE id = 1")
+                newInfo.run(newUsername, hash)
+                newInfo.finalize()
+            })
+
+        })
+
+        res.render("auth/login", { error: "Username and password has been changed, login again" })
+    }
+
+    catch(err) {
+        console.log(err)
+        return res.status(500).send({ error: "Internal Server Error" })
+    }
+})
+
 export default router
